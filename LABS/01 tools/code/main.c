@@ -17,7 +17,7 @@
 #define dash 3*dit     // -
 #define gap_length dit  // gap between marks
 #define short_space_length 3*dit // between letters
-#define long_space_length 5*dit // between letters
+#define long_space_length 5*dit // between words
 
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
