@@ -52,7 +52,7 @@ void my_delay_ms(int n)
 void send_mark(int mark_length)
 {   //mark_lenght in ms
 
-	DDRB = DDRB | (1<<LED_GREEN);	//turn on LED
+	PORTB = PORTB | (1<<LED_GREEN);//turn off LED	//turn on LED
 	my_delay_ms(mark_length);		//mark delay
 	PORTB = PORTB & ~(1<<LED_GREEN);//turn off LED
 	my_delay_ms(gap_length);		//gap between marks
