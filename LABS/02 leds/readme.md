@@ -22,9 +22,11 @@ Link to my `Digital-electronics-2` GitHub repository:
 | **DDRB** | **PORTB** | **Direction** | **Internal pull-up resistor** | **Description** |
 | :-: | :-: | :-: | :-: | :-- |
 | 0 | 0 | input | no | Tri-state, high-impedance |
-| 0 | 1 | input | yes | MCU. will source current if ext. pulled low |
+| 0 | 1 | input | yes* | MCU will source current if ext. pulled low |
 | 1 | 0 | output | no | Output low (sink) |
 | 1 | 1 | output | no| Output high (source) |
+
+must be globaly alloved in PUD register*
 
 | **Port** | **Pin** | **Input/output usage?** |
 | :-: | :-: | :-- |
@@ -63,16 +65,12 @@ int main(void)
     // Green LED at port B
     // Set pin as output in Data Direction Register...
     DDRB = DDRB | (1<<LED_GREEN);
-    DDRC = DDRC | (1<<LED_EXTERNAL);
+    PORTB = PORTB | (1<<LED_GREEN);
     // ...and turn LED off in Data Register
-    PORTB = PORTB & ~(1<<LED_GREEN);
-    PORTC = PORTC & ~(1<<LED_EXTERNAL);
 
     // Configure the second LED at port C
-
-
-    // Configure Push button at port D and enable internal pull-up resistor
-
+    DDRC = DDRC | (1<<LED_EXTERNAL);
+    PORTC = PORTC & ~(1<<LED_EXTERNAL);
 
     // Infinite loop
     while (1)
@@ -95,17 +93,37 @@ int main(void)
 1. Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Let the push button is connected to port D:
 
 ```c
+int main(void)
+{
+    // Green LED at port B
+    // Set pin as output in Data Direction Register...
+    DDRB = DDRB | (1<<LED_GREEN);
+    PORTB = PORTB | (1<<LED_GREEN);
+    // ...and turn LED off in Data Register
+
+    // Configure the second LED at port C
+    DDRC = DDRC | (1<<LED_EXTERNAL);
+    PORTC = PORTC & ~(1<<LED_EXTERNAL);
+
     // Configure Push button at port D and enable internal pull-up resistor
-    // WRITE YOUR CODE HERE
+    DDRC = DDRC & ~(1<<PUSH_BTN);
+    PORTC = PORTC | (1<<PUSH_BTN);
 
     // Infinite loop
     while (1)
     {
-        // Pause several milliseconds
-        _delay_ms(BLINK_DELAY);
-
-        // WRITE YOUR CODE HERE
+        if (bit_is_clear(PINC, PUSH_BTN))
+        {
+            PORTB = PORTB ^ (1<<LED_GREEN);
+            PORTC = PORTC ^ (1<<LED_EXTERNAL);
+            // Pause several milliseconds
+            _delay_ms(BLINK_DELAY);
+        }
     }
+
+    // Will never reach this
+    return 0;
+}
 ```
 
 
@@ -113,4 +131,4 @@ int main(void)
 
 1. Scheme of Knight Rider application, i.e. connection of AVR device, five LEDs, resistors, one push button, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
 
-   ![your figure]()
+   ![your figure](scheme_rider.png)
