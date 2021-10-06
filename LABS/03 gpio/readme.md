@@ -16,7 +16,7 @@ Link to my `Digital-electronics-2` GitHub repository:
 | `uint16_t` | 16 | 0,1, ..., 65535 | Unsigned 16-b integer |
 | `int16_t`  | 16 | -32768, ..., 32766,32767 | Signed 16-b integer |
 | `float`    | 32 | -3.4e+38, ..., 3.4e+38 | Single-precision floating-point |
-| `void`     | empty |  |  |
+| `void`     | none | - | No value expression |
 
 
 ### GPIO library
