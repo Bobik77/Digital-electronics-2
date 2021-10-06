@@ -1,0 +1,271 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_ATmega:ATmega328P-AU U?
+U 1 1 615DC295
+P 4250 3600
+F 0 "U?" H 4650 5100 50  0000 C CNN
+F 1 "ATmega328P-AU" H 4650 2150 50  0000 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 4250 3600 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 4250 3600 50  0001 C CNN
+	1    4250 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 615DD82D
+P 4250 5100
+F 0 "#PWR?" H 4250 4850 50  0001 C CNN
+F 1 "GNDD" H 4254 4945 50  0000 C CNN
+F 2 "" H 4250 5100 50  0001 C CNN
+F 3 "" H 4250 5100 50  0001 C CNN
+	1    4250 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 615DDFED
+P 4350 2100
+F 0 "#PWR?" H 4350 1950 50  0001 C CNN
+F 1 "+5V" H 4400 2250 50  0000 C CNN
+F 2 "" H 4350 2100 50  0001 C CNN
+F 3 "" H 4350 2100 50  0001 C CNN
+	1    4350 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 615DE168
+P 4250 2100
+F 0 "#PWR?" H 4250 1950 50  0001 C CNN
+F 1 "+5V" H 4250 2250 50  0000 C CNN
+F 2 "" H 4250 2100 50  0001 C CNN
+F 3 "" H 4250 2100 50  0001 C CNN
+	1    4250 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 615DE71C
+P 5850 2400
+F 0 "D?" H 6000 2350 50  0000 C CNN
+F 1 "RED" H 5400 2350 50  0000 C CNN
+F 2 "" H 5850 2400 50  0001 C CNN
+F 3 "~" H 5850 2400 50  0001 C CNN
+	1    5850 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 615E067A
+P 5150 2400
+F 0 "R?" V 5100 2250 50  0000 C CNN
+F 1 "220R" V 5100 2650 50  0000 C CNN
+F 2 "" V 5080 2400 50  0001 C CNN
+F 3 "~" H 5150 2400 50  0001 C CNN
+	1    5150 2400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4850 2400 5000 2400
+Wire Wire Line
+	5300 2400 5700 2400
+$Comp
+L Device:LED D?
+U 1 1 615E4158
+P 5850 2500
+F 0 "D?" H 6000 2450 50  0000 C CNN
+F 1 "YELLOW" H 5400 2450 50  0000 C CNN
+F 2 "" H 5850 2500 50  0001 C CNN
+F 3 "~" H 5850 2500 50  0001 C CNN
+	1    5850 2500
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 615E415E
+P 5150 2500
+F 0 "R?" V 5100 2350 50  0000 C CNN
+F 1 "180R" V 5100 2750 50  0000 C CNN
+F 2 "" V 5080 2500 50  0001 C CNN
+F 3 "~" H 5150 2500 50  0001 C CNN
+	1    5150 2500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4850 2500 5000 2500
+Wire Wire Line
+	5300 2500 5700 2500
+$Comp
+L Device:R R?
+U 1 1 615E5387
+P 5150 2600
+F 0 "R?" V 5100 2450 50  0000 C CNN
+F 1 "150R" V 5100 2850 50  0000 C CNN
+F 2 "" V 5080 2600 50  0001 C CNN
+F 3 "~" H 5150 2600 50  0001 C CNN
+	1    5150 2600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4850 2600 5000 2600
+Wire Wire Line
+	5300 2600 5700 2600
+$Comp
+L Device:LED D?
+U 1 1 615E5381
+P 5850 2600
+F 0 "D?" H 6000 2550 50  0000 C CNN
+F 1 "GREEN" H 5400 2550 50  0000 C CNN
+F 2 "" H 5850 2600 50  0001 C CNN
+F 3 "~" H 5850 2600 50  0001 C CNN
+	1    5850 2600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5300 2850 5700 2850
+$Comp
+L Device:R R?
+U 1 1 615EBF99
+P 5150 2850
+F 0 "R?" V 5100 2700 50  0000 C CNN
+F 1 "150R" V 5100 3100 50  0000 C CNN
+F 2 "" V 5080 2850 50  0001 C CNN
+F 3 "~" H 5150 2850 50  0001 C CNN
+	1    5150 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 615EBF93
+P 5850 2850
+F 0 "D?" H 6000 2800 50  0000 C CNN
+F 1 "GREEN" H 5400 2800 50  0000 C CNN
+F 2 "" H 5850 2850 50  0001 C CNN
+F 3 "~" H 5850 2850 50  0001 C CNN
+	1    5850 2850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5300 2750 5700 2750
+$Comp
+L Device:R R?
+U 1 1 615EBF8B
+P 5150 2750
+F 0 "R?" V 5100 2600 50  0000 C CNN
+F 1 "220R" V 5100 3000 50  0000 C CNN
+F 2 "" V 5080 2750 50  0001 C CNN
+F 3 "~" H 5150 2750 50  0001 C CNN
+	1    5150 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 615EBF85
+P 5850 2750
+F 0 "D?" H 6000 2700 50  0000 C CNN
+F 1 "RED" H 5400 2700 50  0000 C CNN
+F 2 "" H 5850 2750 50  0001 C CNN
+F 3 "~" H 5850 2750 50  0001 C CNN
+	1    5850 2750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4850 2700 4900 2700
+Wire Wire Line
+	4900 2700 4900 2750
+Wire Wire Line
+	4900 2750 5000 2750
+Wire Wire Line
+	5000 2850 4900 2850
+Wire Wire Line
+	4900 2850 4900 2800
+Wire Wire Line
+	4900 2800 4850 2800
+Wire Wire Line
+	6000 2400 6100 2400
+Wire Wire Line
+	6100 2400 6100 2500
+Wire Wire Line
+	6000 2500 6100 2500
+Connection ~ 6100 2500
+Wire Wire Line
+	6100 2500 6100 2600
+Wire Wire Line
+	6000 2600 6100 2600
+Connection ~ 6100 2600
+Wire Wire Line
+	6100 2600 6100 2750
+Wire Wire Line
+	6000 2750 6100 2750
+Connection ~ 6100 2750
+Wire Wire Line
+	6000 2850 6100 2850
+$Comp
+L Switch:SW_Push SW?
+U 1 1 615FA1A8
+P 5350 3050
+F 0 "SW?" H 5350 2950 50  0000 C CNN
+F 1 "Pedestrian_sw" H 5350 2850 50  0000 C CNN
+F 2 "" H 5350 3250 50  0001 C CNN
+F 3 "~" H 5350 3250 50  0001 C CNN
+	1    5350 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 615FAEC1
+P 6100 3150
+F 0 "#PWR?" H 6100 2900 50  0001 C CNN
+F 1 "GNDD" H 6104 2995 50  0000 C CNN
+F 2 "" H 6100 3150 50  0001 C CNN
+F 3 "" H 6100 3150 50  0001 C CNN
+	1    6100 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 3050 6100 3050
+Wire Wire Line
+	6100 3050 6100 3150
+Wire Wire Line
+	5150 3050 4950 3050
+Wire Wire Line
+	4950 2900 4850 2900
+Wire Wire Line
+	4950 3050 4950 2900
+Wire Notes Line
+	6500 2650 5600 2650
+Wire Notes Line
+	5600 2250 6500 2250
+Wire Notes Line
+	6500 2250 6500 2950
+Wire Notes Line
+	6500 2950 5600 2950
+Wire Notes Line
+	5600 2250 5600 2950
+Text Notes 6550 2500 0    50   ~ 0
+Traffic semaphor
+Text Notes 6550 2800 0    50   ~ 0
+Pedestrian semaphor
+Wire Wire Line
+	6100 3050 6100 2850
+Connection ~ 6100 3050
+Connection ~ 6100 2850
+Wire Wire Line
+	6100 2750 6100 2850
+Text Notes 5600 2250 0    25   Italic 0
+active high
+$EndSCHEMATC
