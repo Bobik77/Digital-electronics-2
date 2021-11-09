@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:kitchen alarm-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -57,18 +58,261 @@ F 3 "" H 3250 2350 50  0001 C CNN
 	1    3250 2350
 	1    0    0    -1  
 $EndComp
+Text Notes 3850 4600 0    50   ~ 0
+LCD_xx and Buttons\nare signals to the LCD keypad shield\n(see next page)
+Text GLabel 3750 3550 2    50   Input ~ 0
+Buttons
 Text GLabel 3750 2650 2    50   Input ~ 0
-SEG_DATA
+LCD_RS
+Text GLabel 3750 2750 2    50   Input ~ 0
+LCD_E
 Text GLabel 3750 4750 2    50   Input ~ 0
-SEG_LATCH
+LCD_D4
+Text GLabel 3750 4850 2    50   Input ~ 0
+LCD_D5
+Text GLabel 3750 4950 2    50   Input ~ 0
+LCD_D6
 Text GLabel 3750 5050 2    50   Input ~ 0
-SEG_CLK
-Text Notes 4050 4350 0    50   ~ 0
-SEG_DATA, SEG_LATCH, SEG_CLK,\nSW1, SW2, SW3\nare signals to multifunctions shield\n(see next page)
-Text GLabel 3750 3650 2    50   Input ~ 0
-SW1
-Text GLabel 3750 3750 2    50   Input ~ 0
-SW2
-Text GLabel 3750 3850 2    50   Input ~ 0
-SW3
+LCD_D7
+$Comp
+L Device:LED D1
+U 1 1 617F2737
+P 4500 2950
+F 0 "D1" H 4493 3166 50  0000 C CNN
+F 1 "LED" H 4493 3075 50  0000 C CNN
+F 2 "" H 4500 2950 50  0001 C CNN
+F 3 "~" H 4500 2950 50  0001 C CNN
+	1    4500 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR04
+U 1 1 617F32F4
+P 4700 2900
+F 0 "#PWR04" H 4700 2750 50  0001 C CNN
+F 1 "+5V" H 4750 3050 50  0000 C CNN
+F 2 "" H 4700 2900 50  0001 C CNN
+F 3 "" H 4700 2900 50  0001 C CNN
+	1    4700 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 617F3888
+P 4100 2950
+F 0 "R1" V 4000 3000 50  0000 C CNN
+F 1 "330R" V 4250 2950 50  0000 C CNN
+F 2 "" V 4030 2950 50  0001 C CNN
+F 3 "~" H 4100 2950 50  0001 C CNN
+	1    4100 2950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3750 2950 3950 2950
+Wire Wire Line
+	4250 2950 4350 2950
+Wire Wire Line
+	4650 2950 4700 2950
+Wire Wire Line
+	4700 2950 4700 2900
+$Comp
+L Sensor_Temperature:MCP9700T-HTT U2
+U 1 1 61906DB4
+P 5550 3500
+F 0 "U2" H 5221 3546 50  0000 R CNN
+F 1 "TC1046" H 5221 3455 50  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5550 3100 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21942e.pdf" H 5400 3750 50  0001 C CNN
+	1    5550 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR05
+U 1 1 6190A5A3
+P 5550 3150
+F 0 "#PWR05" H 5550 3000 50  0001 C CNN
+F 1 "+5V" H 5600 3300 50  0000 C CNN
+F 2 "" H 5550 3150 50  0001 C CNN
+F 3 "" H 5550 3150 50  0001 C CNN
+	1    5550 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 3150 5550 3200
+$Comp
+L power:GNDD #PWR06
+U 1 1 6190AEEA
+P 5550 3850
+F 0 "#PWR06" H 5550 3600 50  0001 C CNN
+F 1 "GNDD" H 5554 3695 50  0000 C CNN
+F 2 "" H 5550 3850 50  0001 C CNN
+F 3 "" H 5550 3850 50  0001 C CNN
+	1    5550 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 3800 5550 3850
+Wire Wire Line
+	5000 4300 5000 3650
+Wire Wire Line
+	5000 3650 3750 3650
+$Comp
+L pspice:OPAMP U3
+U 1 1 6190BFA2
+P 7200 3600
+F 0 "U3" H 7544 3646 50  0000 L CNN
+F 1 "OPAMP" H 7544 3555 50  0000 L CNN
+F 2 "" H 7200 3600 50  0001 C CNN
+F 3 "~" H 7200 3600 50  0001 C CNN
+	1    7200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 6190D948
+P 6750 3900
+F 0 "R4" H 6820 3946 50  0000 L CNN
+F 1 "100K" H 6820 3855 50  0000 L CNN
+F 2 "" V 6680 3900 50  0001 C CNN
+F 3 "~" H 6750 3900 50  0001 C CNN
+	1    6750 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 6190DFED
+P 6200 3700
+F 0 "R2" V 6300 3550 50  0000 C CNN
+F 1 "100K" V 6300 3750 50  0000 C CNN
+F 2 "" V 6130 3700 50  0001 C CNN
+F 3 "~" H 6200 3700 50  0001 C CNN
+	1    6200 3700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6750 3750 6750 3700
+Connection ~ 6750 3700
+Wire Wire Line
+	6750 3700 6900 3700
+$Comp
+L power:GNDD #PWR011
+U 1 1 6190E892
+P 7100 3900
+F 0 "#PWR011" H 7100 3650 50  0001 C CNN
+F 1 "GNDD" H 7104 3745 50  0000 C CNN
+F 2 "" H 7100 3900 50  0001 C CNN
+F 3 "" H 7100 3900 50  0001 C CNN
+	1    7100 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR010
+U 1 1 6190EB56
+P 7100 3300
+F 0 "#PWR010" H 7100 3150 50  0001 C CNN
+F 1 "+5V" H 7150 3450 50  0000 C CNN
+F 2 "" H 7100 3300 50  0001 C CNN
+F 3 "" H 7100 3300 50  0001 C CNN
+	1    7100 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 6190F931
+P 6300 3500
+F 0 "R3" V 6200 3400 50  0000 C CNN
+F 1 "22K" V 6200 3600 50  0000 C CNN
+F 2 "" V 6230 3500 50  0001 C CNN
+F 3 "~" H 6300 3500 50  0001 C CNN
+	1    6300 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 619102BD
+P 7100 3000
+F 0 "R5" V 7200 3100 50  0000 C CNN
+F 1 "47K" V 7200 2950 50  0000 C CNN
+F 2 "" V 7030 3000 50  0001 C CNN
+F 3 "~" H 7100 3000 50  0001 C CNN
+	1    7100 3000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6750 3500 6750 3000
+Wire Wire Line
+	6750 3000 6950 3000
+Connection ~ 6750 3500
+Wire Wire Line
+	6750 3500 6900 3500
+Wire Wire Line
+	7250 3000 7700 3000
+Wire Wire Line
+	7700 3000 7700 3600
+Wire Wire Line
+	7700 3600 7500 3600
+$Comp
+L power:GNDD #PWR09
+U 1 1 61912A0F
+P 6750 4050
+F 0 "#PWR09" H 6750 3800 50  0001 C CNN
+F 1 "GNDD" H 6754 3895 50  0000 C CNN
+F 2 "" H 6750 4050 50  0001 C CNN
+F 3 "" H 6750 4050 50  0001 C CNN
+	1    6750 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR07
+U 1 1 61912DB1
+P 6000 3700
+F 0 "#PWR07" H 6000 3550 50  0001 C CNN
+F 1 "+5V" H 6050 3850 50  0000 C CNN
+F 2 "" H 6000 3700 50  0001 C CNN
+F 3 "" H 6000 3700 50  0001 C CNN
+	1    6000 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 3700 6000 3700
+$Comp
+L Device:C C1
+U 1 1 61914A36
+P 6450 3900
+F 0 "C1" H 6250 3850 50  0000 L CNN
+F 1 "100n" H 6150 3750 50  0000 L CNN
+F 2 "" H 6488 3750 50  0001 C CNN
+F 3 "~" H 6450 3900 50  0001 C CNN
+	1    6450 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3500 5950 3500
+Wire Wire Line
+	6450 3500 6750 3500
+Wire Wire Line
+	6350 3700 6450 3700
+Wire Wire Line
+	6450 3700 6450 3750
+Wire Wire Line
+	6450 3700 6750 3700
+Connection ~ 6450 3700
+$Comp
+L power:GNDD #PWR08
+U 1 1 61919166
+P 6450 4050
+F 0 "#PWR08" H 6450 3800 50  0001 C CNN
+F 1 "GNDD" H 6454 3895 50  0000 C CNN
+F 2 "" H 6450 4050 50  0001 C CNN
+F 3 "" H 6450 4050 50  0001 C CNN
+	1    6450 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 4300 7850 3600
+Wire Wire Line
+	7850 3600 7700 3600
+Wire Wire Line
+	5000 4300 7850 4300
+Connection ~ 7700 3600
 $EndSCHEMATC
